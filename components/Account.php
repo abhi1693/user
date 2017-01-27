@@ -55,13 +55,6 @@ class Account extends ComponentBase
     public function onRun()
     {
         /*
-         * Redirect to HTTPS checker
-         */
-        if ($redirect = $this->redirectForceSecure()) {
-            return $redirect;
-        }
-
-        /*
          * Activation code supplied
          */
         $routeParameter = $this->property('paramCode');

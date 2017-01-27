@@ -24,7 +24,7 @@
                     data-request="onSave"
                     data-request-data="redirect:0"
                     data-hotkey="ctrl+s, cmd+s"
-                    data-load-indicator="<?= e('Saving :name...', ['name'=>$formRecordName])) ?>"
+                    data-load-indicator="<?= e('Saving :name...', ['name'=>$formRecordName]) ?>"
                     class="btn btn-primary">
                     <?= e(trans('backend::lang.form.save')) ?>
                 </button>
@@ -33,7 +33,7 @@
                     data-request="onSave"
                     data-request-data="close:1"
                     data-hotkey="ctrl+enter, cmd+enter"
-                    data-load-indicator="<?= e('Savin :name...', ['name'=>$formRecordName])) ?>"
+                    data-load-indicator="<?= e('Savin :name...', ['name'=>$formRecordName]) ?>"
                     class="btn btn-default">
                     Save and Close
                 </button>
@@ -43,7 +43,7 @@
                 <button
                     class="oc-icon-trash-o btn-icon danger pull-right"
                     data-request="onDelete"
-                    data-load-indicator="<?= e('Deleting :name...', ['name'=>$formRecordName])) ?>"
+                    data-load-indicator="<?= e('Deleting :name...', ['name'=>$formRecordName]) ?>"
                     data-request-confirm="Do you really want to delete this user?">
                 </button>
             </div>
