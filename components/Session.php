@@ -1,4 +1,4 @@
-<?php namespace Abhimanyu\User\Components;
+<?php namespace Frontend\User\Components;
 
 use Lang;
 use Auth;
@@ -88,7 +88,7 @@ class Session extends ComponentBase
         Auth::logout();
 
         if ($user) {
-            Event::fire('abhimanyu.user.logout', [$user]);
+            Event::fire('frontend.user.logout', [$user]);
         }
 
         $url = post('redirect', Request::fullUrl());

@@ -1,4 +1,4 @@
-<?php namespace Abhimanyu\User\Components;
+<?php namespace Frontend\User\Components;
 
 use Auth;
 use Mail;
@@ -6,7 +6,7 @@ use Validator;
 use ValidationException;
 use ApplicationException;
 use Cms\Classes\ComponentBase;
-use Abhimanyu\User\Models\User as UserModel;
+use Frontend\User\Models\User as UserModel;
 
 class ResetPassword extends ComponentBase
 {
@@ -59,7 +59,7 @@ class ResetPassword extends ComponentBase
             'code' => $code
         ];
 
-        Mail::send('abhimanyu.user::mail.restore', $data, function($message) use ($user) {
+        Mail::send('frontend.user::mail.restore', $data, function($message) use ($user) {
             $message->to($user->email, $user->full_name);
         });
     }

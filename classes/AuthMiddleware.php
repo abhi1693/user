@@ -1,4 +1,4 @@
-<?php namespace Abhimanyu\User\Classes;
+<?php namespace Frontend\User\Classes;
 
 use Auth;
 use Closure;

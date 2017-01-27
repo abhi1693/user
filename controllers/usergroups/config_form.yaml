@@ -6,25 +6,25 @@
 name: Group
 
 # Model Form Field configuration
-form: $/abhimanyu/user/models/usergroup/fields.yaml
+form: $/frontend/user/models/usergroup/fields.yaml
 
 # Model Class name
-modelClass: Abhimanyu\User\Models\UserGroup
+modelClass: Frontend\User\Models\UserGroup
 
 # Default redirect location
-defaultRedirect: user/usergroups
+defaultRedirect: frontend/user/usergroups
 
 # Create page
 create:
     title: Create User Group
-    redirect: user/usergroups/update/:id
-    redirectClose: user/usergroups
+    redirect: frontend/user/usergroups/update/:id
+    redirectClose: frontend/user/usergroups
 
 # Update page
 update:
     title: Edit User Group
-    redirect: user/usergroups
-    redirectClose: user/usergroups
+    redirect: frontend/user/usergroups
+    redirectClose: frontend/user/usergroups
 
 # Preview page
 preview:

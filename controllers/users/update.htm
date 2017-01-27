@@ -1,6 +1,6 @@
 <?php Block::put('breadcrumb') ?>
     <ul>
-        <li><a href="<?= Backend::url('user/users') ?>">Users</a></li>
+        <li><a href="<?= Backend::url('frontend/user/users') ?>">Users</a></li>
         <li><?= e(trans($this->pageTitle)) ?></li>
     </ul>
 <?php Block::endPut() ?>
@@ -38,7 +38,7 @@
                     Save and Close
                 </button>
                 <span class="btn-text">
-                    or <a href="<?= Backend::url('user/users/preview/'.$formModel->id) ?>">Cancel</a>
+                    or <a href="<?= Backend::url('frontend/user/users/preview/'.$formModel->id) ?>">Cancel</a>
                 </span>
                 <button
                     class="oc-icon-trash-o btn-icon danger pull-right"
@@ -67,6 +67,6 @@
     </div>
     <div class="padded-container">
         <p class="flash-message static error"><?= e(trans($this->fatalError)) ?></p>
-        <p><a href="<?= Backend::url('user/users') ?>" class="btn btn-default">Return to users list</a></p>
+        <p><a href="<?= Backend::url('frontend/user/users') ?>" class="btn btn-default">Return to users list</a></p>
     </div>
 <?php endif ?>

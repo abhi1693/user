@@ -1,9 +1,9 @@
-<?php namespace Abhimanyu\User\Models;
+<?php namespace Frontend\User\Models;
 
 use Lang;
 use Model;
 use System\Models\MailTemplate;
-use Abhimanyu\User\Models\User as UserModel;
+use Frontend\User\Models\User as UserModel;
 
 class Settings extends Model
 {
@@ -26,7 +26,7 @@ class Settings extends Model
         $this->use_throttle = true;
         $this->block_persistence = false;
         $this->allow_registration = true;
-        $this->welcome_template = 'abhimanyu.user::mail.welcome';
+        $this->welcome_template = 'frontend.user::mail.welcome';
         $this->login_attribute = self::LOGIN_EMAIL;
     }
 

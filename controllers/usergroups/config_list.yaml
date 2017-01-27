@@ -3,16 +3,16 @@
 # ===================================
 
 # Model List Column configuration
-list: $/abhimanyu/user/models/usergroup/columns.yaml
+list: $/frontend/user/models/usergroup/columns.yaml
 
 # Model Class name
-modelClass: Abhimanyu\User\Models\UserGroup
+modelClass: Frontend\User\Models\UserGroup
 
 # List Title
 title: Manage Groups
 
 # Link URL for each record
-recordUrl: user/usergroups/update/:id
+recordUrl: frontend/user/usergroups/update/:id
 
 # Message to display if the list is empty
 noRecordsMessage: There are no records in this view

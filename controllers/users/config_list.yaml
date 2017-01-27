@@ -6,13 +6,13 @@
 title: Manage Users
 
 # Model List Column configuration
-list: $/abhimanyu/user/models/user/columns.yaml
+list: $/frontend/user/models/user/columns.yaml
 
 # Model Class name
-modelClass: Abhimanyu\User\Models\User
+modelClass: Frontend\User\Models\User
 
 # Link URL for each record
-recordUrl: user/users/preview/:id
+recordUrl: frontend/user/users/preview/:id
 
 # Message to display if the list is empty
 noRecordsMessage: There are no records in this view

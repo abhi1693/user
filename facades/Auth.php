@@ -1,4 +1,4 @@
-<?php namespace Abhimanyu\User\Facades;
+<?php namespace Frontend\User\Facades;
 
 use October\Rain\Support\Facade;
 

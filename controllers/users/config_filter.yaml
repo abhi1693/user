@@ -8,7 +8,7 @@ scopes:
         # Filter name
         label: Group
         # Model Class name
-        modelClass: Abhimanyu\User\Models\UserGroup
+        modelClass: Frontend\User\Models\UserGroup
         # Model attribute to display for the name
         nameFrom: name
         # Filter scope

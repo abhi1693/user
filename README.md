@@ -8,7 +8,7 @@ You can help us to make this plugin bigger, better and badass. Check out our roa
 
 # Roadmap
 
-- [ ] Change the namespace
+- [x] Change the namespace
 - [ ] Fix the layouts to look more neat
 - [ ] Add social auth signup
 - [ ] Remove unnecessary code

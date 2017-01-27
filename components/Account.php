@@ -1,4 +1,4 @@
-<?php namespace Abhimanyu\User\Components;
+<?php namespace Frontend\User\Components;
 
 use Lang;
 use Auth;
@@ -13,7 +13,7 @@ use ValidationException;
 use ApplicationException;
 use Cms\Classes\Page;
 use Cms\Classes\ComponentBase;
-use Abhimanyu\User\Models\Settings as UserSettings;
+use Frontend\User\Models\Settings as UserSettings;
 use Exception;
 
 class Account extends ComponentBase
@@ -378,7 +378,7 @@ class Account extends ComponentBase
             'code' => $code
         ];
 
-        Mail::send('abhimanyu.user::mail.activate', $data, function($message) use ($user) {
+        Mail::send('frontend.user::mail.activate', $data, function($message) use ($user) {
             $message->to($user->email, $user->name);
         });
     }

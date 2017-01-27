@@ -1,21 +1,21 @@
-<?php namespace Abhimanyu\User\Classes;
+<?php namespace Frontend\User\Classes;
 
-use October\Rain\Auth\Manager as EAuthManager;
-use Abhimanyu\User\Models\Settings as UserSettings;
-use Abhimanyu\User\Models\UserGroup as UserGroupModel;
+use October\Rain\Auth\Manager as FAuthManager;
+use Frontend\User\Models\Settings as UserSettings;
+use Frontend\User\Models\UserGroup as UserGroupModel;
 use October\Rain\Auth\AuthException;
 
-class AuthManager extends EAuthManager
+class AuthManager extends FAuthManager
 {
     protected static $instance;
 
     protected $sessionKey = 'user_auth';
 
-    protected $userModel = 'Abhimanyu\User\Models\User';
+    protected $userModel = 'Frontend\User\Models\User';
 
-    protected $groupModel = 'Abhimanyu\User\Models\UserGroup';
+    protected $groupModel = 'Frontend\User\Models\UserGroup';
 
-    protected $throttleModel = 'Abhimanyu\User\Models\Throttle';
+    protected $throttleModel = 'Frontend\User\Models\Throttle';
 
     public function init()
     {

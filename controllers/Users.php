@@ -1,4 +1,4 @@
-<?php namespace Abhimanyu\User\Controllers;
+<?php namespace Frontend\User\Controllers;
 
 use Auth;
 use Lang;
@@ -7,10 +7,10 @@ use BackendMenu;
 use BackendAuth;
 use Backend\Classes\Controller;
 use System\Classes\SettingsManager;
-use Abhimanyu\User\Models\User;
-use Abhimanyu\User\Models\UserGroup;
-use Abhimanyu\User\Models\MailBlocker;
-use Abhimanyu\User\Models\Settings as UserSettings;
+use Frontend\User\Models\User;
+use Frontend\User\Models\UserGroup;
+use Frontend\User\Models\MailBlocker;
+use Frontend\User\Models\Settings as UserSettings;
 
 class Users extends Controller
 {
@@ -23,7 +23,7 @@ class Users extends Controller
     public $listConfig = 'config_list.yaml';
     public $relationConfig;
 
-    public $requiredPermissions = ['abhimanyu.users.access_users'];
+    public $requiredPermissions = ['frontend.users.access_users'];
 
     public $bodyClass = 'compact-container';
 
@@ -31,13 +31,13 @@ class Users extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Abhimanyu.User', 'user', 'users');
-        SettingsManager::setContext('Abhimanyu.User', 'settings');
+        BackendMenu::setContext('Frontend.User', 'user', 'users');
+        SettingsManager::setContext('Frontend.User', 'settings');
     }
 
     public function index()
     {
-        $this->addJs('/plugins/abhimanyu/user/assets/js/bulk-actions.js');
+        $this->addJs('/plugins/frontend/user/assets/js/bulk-actions.js');
 
         $this->asExtension('ListController')->index();
     }

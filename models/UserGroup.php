@@ -1,4 +1,4 @@
-<?php namespace Abhimanyu\User\Models;
+<?php namespace Frontend\User\Models;
 
 use October\Rain\Auth\Models\Group as GroupBase;
 use ApplicationException;
@@ -28,8 +28,8 @@ class UserGroup extends GroupBase
      * @var array Relations
      */
     public $belongsToMany = [
-        'users'       => ['Abhimanyu\User\Models\User', 'table' => 'users_groups'],
-        'users_count' => ['Abhimanyu\User\Models\User', 'table' => 'users_groups', 'count' => true]
+        'users'       => ['Frontend\User\Models\User', 'table' => 'users_groups'],
+        'users_count' => ['Frontend\User\Models\User', 'table' => 'users_groups', 'count' => true]
     ];
 
     /**

@@ -55,7 +55,7 @@ tabs:
         # Hint
         template_hint:
             type: hint
-            path: $/abhimanyu/user/models/settings/_template_hint.htm
+            path: $/frontend/user/models/settings/_template_hint.htm
             tab: Notifications
 
         # Welcome Template
@@ -63,5 +63,5 @@ tabs:
             label: Welcome mail template
             comment: This mail template is sent to a user when they are first activated
             type: dropdown
-            default: abhimanyu.user::mail.activate
+            default: frontend.user::mail.activate
             tab: Notifications

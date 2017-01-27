@@ -29,7 +29,7 @@ class Plugin extends PluginBase
     public function register()
     {
         $alias = AliasLoader::getInstance();
-        $alias->alias('Auth', 'Abhimanyu\User\Facades\Auth');
+        $alias->alias('Auth', 'Frontend\User\Facades\Auth');
 
         App::singleton('user.auth', function () {
             return \Abhimanyu\User\Classes\AuthManager::instance();
@@ -46,18 +46,18 @@ class Plugin extends PluginBase
     public function registerComponents()
     {
         return [
-            'Abhimanyu\User\Components\Session'       => 'session',
-            'Abhimanyu\User\Components\Account'       => 'account',
-            'Abhimanyu\User\Components\ResetPassword' => 'resetPassword'
+            'Frontend\User\Components\Session'       => 'session',
+            'Frontend\User\Components\Account'       => 'account',
+            'Frontend\User\Components\ResetPassword' => 'resetPassword'
         ];
     }
 
     public function registerPermissions()
     {
         return [
-            'abhimanyu.users.access_users'    => ['tab' => 'User', 'label' => 'Access Users'],
-            'abhimanyu.users.access_groups'   => ['tab' => 'User', 'label' => 'Access Groups'],
-            'abhimanyu.users.access_settings' => ['tab' => 'User', 'label' => 'Access Settings']
+            'frontend.users.access_users'    => ['tab' => 'User', 'label' => 'Access Users'],
+            'frontend.users.access_groups'   => ['tab' => 'User', 'label' => 'Access Groups'],
+            'frontend.users.access_settings' => ['tab' => 'User', 'label' => 'Access Settings']
         ];
     }
 
@@ -68,8 +68,8 @@ class Plugin extends PluginBase
                 'label'       => 'Users',
                 'url'         => Backend::url('frontend/user/users'),
                 'icon'        => 'icon-user',
-                'iconSvg'     => 'plugins/abhimanyu/user/assets/images/user-icon.svg',
-                'permissions' => ['abhimanyu.users.*'],
+                'iconSvg'     => 'plugins/frontend/user/assets/images/user-icon.svg',
+                'permissions' => ['frontend.users.*'],
                 'order'       => 500,
             ]
         ];
@@ -83,9 +83,9 @@ class Plugin extends PluginBase
                 'description' => 'Manage users settings',
                 'category'    => SettingsManager::CATEGORY_USERS,
                 'icon'        => 'icon-cog',
-                'class'       => 'Abhimanyu\User\Models\Settings',
+                'class'       => 'Frontend\User\Models\Settings',
                 'order'       => 500,
-                'permissions' => ['abhimanyu.users.access_settings'],
+                'permissions' => ['frontend.users.access_settings'],
             ]
         ];
     }
@@ -93,11 +93,11 @@ class Plugin extends PluginBase
     public function registerMailTemplates()
     {
         return [
-            'abhimanyu.user::mail.activate'   => 'Activation email sent to new users.',
-            'abhimanyu.user::mail.welcome'    => 'Welcome email sent when a user is activated.',
-            'abhimanyu.user::mail.restore'    => 'Password reset instructions for front-end users.',
-            'abhimanyu.user::mail.new_user'   => 'Sent to administrators when a new user joins.',
-            'abhimanyu.user::mail.reactivate' => 'Notification for users who reactivate their account.',
+            'frontend.user::mail.activate'   => 'Activation email sent to new users.',
+            'frontend.user::mail.welcome'    => 'Welcome email sent when a user is activated.',
+            'frontend.user::mail.restore'    => 'Password reset instructions for front-end users.',
+            'frontend.user::mail.new_user'   => 'Sent to administrators when a new user joins.',
+            'frontend.user::mail.reactivate' => 'Notification for users who reactivate their account.',
         ];
     }
 }

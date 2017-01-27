@@ -1,11 +1,11 @@
-<?php namespace Abhimanyu\User\Models;
+<?php namespace Frontend\User\Models;
 
 use Str;
 use Auth;
 use Mail;
 use Event;
 use October\Rain\Auth\Models\User as UserBase;
-use Abhimanyu\User\Models\Settings as UserSettings;
+use Frontend\User\Models\Settings as UserSettings;
 
 class User extends UserBase
 {
@@ -30,7 +30,7 @@ class User extends UserBase
      * @var array Relations
      */
     public $belongsToMany = [
-        'groups' => ['Abhimanyu\User\Models\UserGroup', 'table' => 'users_groups']
+        'groups' => ['Frontend\User\Models\UserGroup', 'table' => 'users_groups']
     ];
 
     public $attachOne = [
@@ -82,7 +82,7 @@ class User extends UserBase
             Mail::sendTo($this, $mailTemplate, $this->getNotificationVars());
         }
 
-        Event::fire('abhimanyu.user.activate', [$this]);
+        Event::fire('frontend.user.activate', [$this]);
 
         return true;
     }
@@ -253,17 +253,17 @@ class User extends UserBase
         if ($this->trashed()) {
             $this->restore();
 
-            Mail::sendTo($this, 'abhimanyu.user::mail.reactivate', [
+            Mail::sendTo($this, 'frontend.user::mail.reactivate', [
                 'name' => $this->name
             ]);
 
-            Event::fire('abhimanyu.user.reactivate', [$this]);
+            Event::fire('frontend.user.reactivate', [$this]);
         }
         else {
             parent::afterLogin();
         }
 
-        Event::fire('abhimanyu.user.login', [$this]);
+        Event::fire('frontend.user.login', [$this]);
     }
 
     /**
@@ -273,7 +273,7 @@ class User extends UserBase
     public function afterDelete()
     {
         if ($this->isSoftDelete()) {
-            Event::fire('abhimanyu.user.deactivate', [$this]);
+            Event::fire('frontend.user.deactivate', [$this]);
             return;
         }
 
@@ -381,7 +381,7 @@ class User extends UserBase
         /*
          * Extensibility
          */
-        $result = Event::fire('abhimanyu.user.getNotificationVars', [$this]);
+        $result = Event::fire('frontend.user.getNotificationVars', [$this]);
         if ($result && is_array($result)) {
             $vars = call_user_func_array('array_merge', $result) + $vars;
         }
@@ -395,7 +395,7 @@ class User extends UserBase
      */
     protected function sendInvitation()
     {
-        Mail::sendTo($this, 'abhimanyu.user::mail.invite', $this->getNotificationVars());
+        Mail::sendTo($this, 'frontend.user::mail.invite', $this->getNotificationVars());
     }
 
     /**

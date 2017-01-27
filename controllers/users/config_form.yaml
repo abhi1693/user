@@ -6,20 +6,20 @@
 name: User
 
 # Model Form Field configuration
-form: $/abhimanyu/user/models/user/fields.yaml
+form: $/frontend/user/models/user/fields.yaml
 
 # Model Class name
-modelClass: Abhimanyu\User\Models\User
+modelClass: Frontend\User\Models\User
 
 # Default redirect location
-defaultRedirect: user/users
+defaultRedirect: frontend/user/users
 
 # Create page
 create:
-    redirect: user/users/preview/:id
-    redirectClose: user/users
+    redirect: frontend/user/users/preview/:id
+    redirectClose: frontend/user/users
 
 # Update page
 update:
-    redirect: user/users/update/:id
-    redirectClose: user/users/preview/:id
+    redirect: frontend/user/users/update/:id
+    redirectClose: frontend/user/users/preview/:id
