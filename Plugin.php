@@ -32,7 +32,7 @@ class Plugin extends PluginBase
         $alias->alias('Auth', 'Frontend\User\Facades\Auth');
 
         App::singleton('user.auth', function () {
-            return \Abhimanyu\User\Classes\AuthManager::instance();
+            return \Frontend\User\Classes\AuthManager::instance();
         });
 
         /*

@@ -138,7 +138,7 @@ class Account extends ComponentBase
                 'password' => array_get($data, 'password')
             ];
 
-            Event::fire('abhimanyu.user.beforeAuthenticate', [$this, $credentials]);
+            Event::fire('frontend.user.beforeAuthenticate', [$this, $credentials]);
 
             $user = Auth::authenticate($credentials, true);
 
