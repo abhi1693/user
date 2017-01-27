@@ -18,3 +18,4 @@ You can help us to make this plugin bigger, better and badass. Check out our roa
 - [ ] User access log using graphs for the backend dashboard
 - [ ] Send mail to individual user or a group of users
 - [ ] Ability to change forum username
+- [ ] Autocomplete Email on the backend as well as frontend

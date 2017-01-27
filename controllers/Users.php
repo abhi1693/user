@@ -42,6 +42,26 @@ class Users extends Controller
         $this->asExtension('ListController')->index();
     }
 
+    // TODO: Fix autocomplete email
+    public function create($context = null)
+    {
+        $this->addCss('/plugins/frontend/user/assets/css/autocomplete.css');
+        $this->addJs('/plugins/frontend/user/assets/js/autocomplete.min.js');
+        $this->addJs('/plugins/frontend/user/assets/js/user.js');
+        // Call the FormController behavior create() method
+        return $this->asExtension('FormController')->create($context);
+    }
+
+    // TODO: Fix autocomplete email
+    public function update($recordId, $context = null)
+    {
+        $this->addCss('/plugins/frontend/user/assets/css/autocomplete.css');
+        $this->addJs('/plugins/frontend/user/assets/js/autocomplete.min.js');
+        $this->addJs('/plugins/frontend/user/assets/js/user.js');
+        // Call the FormController behavior update() method
+        return $this->asExtension('FormController')->update($recordId, $context);
+    }
+
     /**
      * {@inheritDoc}
      */
