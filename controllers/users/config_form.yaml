@@ -1,0 +1,25 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: User
+
+# Model Form Field configuration
+form: $/abhimanyu/user/models/user/fields.yaml
+
+# Model Class name
+modelClass: Abhimanyu\User\Models\User
+
+# Default redirect location
+defaultRedirect: user/users
+
+# Create page
+create:
+    redirect: user/users/preview/:id
+    redirectClose: user/users
+
+# Update page
+update:
+    redirect: user/users/update/:id
+    redirectClose: user/users/preview/:id

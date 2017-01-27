@@ -1,0 +1,40 @@
+# ===================================
+#  Column Definitions
+# ===================================
+
+columns:
+
+    id:
+        label: ID
+        invisible: true
+
+    username:
+        label: Username
+        searchable: true
+        invisible: true
+
+    name:
+        label: First Name
+        searchable: true
+
+    surname:
+        label: Last Name
+        searchable: true
+        invisible: true
+
+    email:
+        label: Email
+        searchable: true
+
+    created_at:
+        label: Registered
+        type: timetense
+
+    last_seen:
+        label: Last seen
+        type: timetense
+
+    is_guest:
+        label: Guest
+        type: switch
+        invisible: true

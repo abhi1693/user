@@ -1,0 +1,81 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+fields:
+
+    name:
+        label: First Name
+        span: auto
+
+    surname:
+        label: Last Name
+        span: auto
+
+tabs:
+    fields:
+
+        email:
+            label: Email
+            tab: Account
+            span: full
+
+        send_invite:
+            type: checkbox
+            label: Send invitation by email
+            comment: Sends a welcome message containing login and password information
+            tab: Account
+            default: true
+            context: create
+
+        block_mail:
+            label: Block all outgoing mail sent to this user
+            tab: Account
+            type: checkbox
+            span: full
+            cssClass: field-align-above
+            context: update
+
+        password@create:
+            label: Create Password
+            comment: Enter a new password used for signing in
+            tab: Account
+            type: password
+            span: left
+
+        password@update:
+            label: Reset Password
+            comment: To reset this users password, enter a new password here
+            tab: Account
+            type: password
+            span: left
+
+        password_confirmation:
+            label: Password Confirmation
+            comment: Enter the password again to confirm it
+            tab: Account
+            type: password
+            span: right
+            context: [create, update]
+
+        username:
+            label: Username
+            tab: Account
+            hidden: true
+            span: left
+
+        groups:
+            label: Groups
+            tab: Account
+            type: relation
+            emptyOption: There are no user groups available
+
+secondaryTabs:
+    fields:
+
+        avatar:
+            label: Avatar
+            type: fileupload
+            mode: image
+            imageHeight: 250
+            imageWidth: 250

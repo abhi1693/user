@@ -1,0 +1,44 @@
+# ===================================
+#  List Behavior Config
+# ===================================
+
+# Model List Column configuration
+list: $/abhimanyu/user/models/usergroup/columns.yaml
+
+# Model Class name
+modelClass: Abhimanyu\User\Models\UserGroup
+
+# List Title
+title: Manage Groups
+
+# Link URL for each record
+recordUrl: user/usergroups/update/:id
+
+# Message to display if the list is empty
+noRecordsMessage: There are no records in this view
+
+# Records to display per page
+recordsPerPage: 20
+
+# Displays the list column set up button
+showSetup: true
+
+# Displays the sorting link on each column
+showSorting: true
+
+# Default sorting column
+# defaultSort:
+#     column: created_at
+#     direction: desc
+
+# Display checkboxes next to each record
+# showCheckboxes: true
+
+# Toolbar widget configuration
+toolbar:
+    # Partial for toolbar buttons
+    buttons: list_toolbar
+
+    # Search widget configuration
+    search:
+        prompt: Search...

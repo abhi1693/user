@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Group
+
+# Model Form Field configuration
+form: $/abhimanyu/user/models/usergroup/fields.yaml
+
+# Model Class name
+modelClass: Abhimanyu\User\Models\UserGroup
+
+# Default redirect location
+defaultRedirect: user/usergroups
+
+# Create page
+create:
+    title: Create User Group
+    redirect: user/usergroups/update/:id
+    redirectClose: user/usergroups
+
+# Update page
+update:
+    title: Edit User Group
+    redirect: user/usergroups
+    redirectClose: user/usergroups
+
+# Preview page
+preview:
+    title: Edit User Group

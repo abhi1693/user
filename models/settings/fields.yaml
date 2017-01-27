@@ -1,0 +1,67 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+tabs:
+    fields:
+        # Throttle Sign In
+        use_throttle:
+            span: left
+            label: Throttle attempts
+            comment: Repeat failed sign in attempts will temporarily suspend the user
+            type: switch
+            tab: Sign in
+
+        # Prevent concurrent sessions
+        block_persistence:
+            span: right
+            label: Prevent concurrent sessions
+            comment: When enabled users cannot sign in to multiple devices at the same time.
+            type: switch
+            tab: Sign in
+
+        # Login Attribute
+        login_attribute:
+            span: left
+            label: Login Attribute
+            commentAbove: Select what primary user detail should be used for signing in
+            type: radio
+            tab: Sign in
+
+        # Require Activation
+        allow_registration:
+            span: left
+            label: Allow user registration
+            comment: If this is disabled users can only be created by administrators
+            type: switch
+            tab: Registration
+
+        # Require Activation
+        require_activation:
+            span: left
+            label: Sign in requires activation
+            comment: Users must have an activated account to sign in
+            type: switch
+            tab: Activation
+
+        # Activation Mode
+        activate_mode:
+            span: left
+            commentAbove: Select how a user account should be activated
+            label: Activation mode
+            type: radio
+            tab: Activation
+
+        # Hint
+        template_hint:
+            type: hint
+            path: $/abhimanyu/user/models/settings/_template_hint.htm
+            tab: Notifications
+
+        # Welcome Template
+        welcome_template:
+            label: Welcome mail template
+            comment: This mail template is sent to a user when they are first activated
+            type: dropdown
+            default: abhimanyu.user::mail.activate
+            tab: Notifications
