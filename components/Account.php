@@ -136,6 +136,11 @@ class Account extends ComponentBase
             $user = Auth::authenticate($credentials, true);
 
             /*
+             * After login event
+             */
+             Event::fire('frontend.user.afterlogin', [$user]);
+
+            /*
              * Redirect to the intended page after successful sign in
              */
             $redirectUrl = $this->pageUrl($this->property('redirect'))
