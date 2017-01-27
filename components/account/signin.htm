@@ -1,24 +1,75 @@
-<form
-    data-request="onSignin">
-    <div class="form-group">
-        <label for="userSigninLogin">{{ loginAttributeLabel }}</label>
-        <input
-            name="login"
-            type="text"
-            class="form-control"
-            id="userSigninLogin"
-            placeholder="Enter your {{ loginAttributeLabel|lower }}" />
+<div class="signin_login">
+  <div class="row signin_row-sm-offset-3 signin_socialButtons">
+    <div class="col-xs-4 col-sm-2">
+      <a href="#" class="btn btn-lg btn-block signin_btn-facebook">
+        <i class="fa fa-facebook visible-xs" aria-hidden="true"></i>
+        <span class="hidden-xs">Facebook</span>
+      </a>
     </div>
 
-    <div class="form-group">
-        <label for="userSigninPassword">Password</label>
-        <input
-            name="password"
-            type="password"
-            class="form-control"
-            id="userSigninPassword"
-            placeholder="Enter your password" />
+    <div class="col-xs-4 col-sm-2">
+      <a href="#" class="btn btn-lg btn-block signin_btn-twitter">
+        <i class="fa fa-twitter visible-xs" aria-hidden="true"></i>
+        <span class="hidden-xs">Twitter</span>
+      </a>
     </div>
 
-    <button type="submit" class="btn btn-default">Sign in</button>
-</form>
+    <div class="col-xs-4 col-sm-2">
+      <a href="#" class="btn btn-lg btn-block signin_btn-google">
+        <i class="fa fa-google-plus visible-xs" aria-hidden="true"></i>
+        <span class="hidden-xs">Google+</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="row signin_row-sm-offset-3 signin_loginOr">
+    <div class="col-xs-12 col-sm-6">
+      <hr class="signin_hrOr" />
+      <span class="signin_spanOr">or</span>
+    </div>
+  </div>
+
+  <div class="row signin_row-sm-offset-3">
+    <div class="col-xs-12 col-sm-6">
+      <form class="signin_loginForm"
+          data-request="onSignin">
+
+          <div class="form-group">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <input
+                    name="login"
+                    type="text"
+                    class="form-control"
+                    placeholder="{{ loginAttributeLabel }}"
+                    required="required" />
+              </div>
+          </div>
+
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
+              <input
+                  name="password"
+                  type="password"
+                  class="form-control"
+                  placeholder="Password"
+                  required="required" />
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+      </form>
+    </div>
+  </div>
+
+  <br />
+
+  <div class="row signin_row-sm-offset-3">
+    <div class="col-xs-12 col-sm-3">
+      <p>
+        <a href="/user/reset-password" target="_blank">Forgot Password?</a>
+      </p>
+    </div>
+  </div>
+</div>

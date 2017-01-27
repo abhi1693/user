@@ -1,22 +1,31 @@
 {% if not user %}
 
-    <div class="row">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#signin" data-toggle="tab">Sign In</a></li>
+    <li><a href="#register" data-toggle="tab">Register</a></li>
+  </ul>
 
-        <div class="col-md-6">
-            <h3>Sign in</h3>
-            {% partial __SELF__ ~ '::signin' %}
+  <div class="tab-content">
+    <div class="tab-pane active in" id="signin">
+      <div class="row">
+        <div class="col-md-10">
+          <br />
+          {% partial __SELF__ ~ '::signin' %}
         </div>
-
-        <div class="col-md-6">
-            <h3>Register</h3>
-            {% partial __SELF__ ~ '::register' %}
-        </div>
-
+      </div>
     </div>
 
-{% else %}
+    <div class="tab-pane fade" id="register">
+      <div class="row">
+        <div class="col-md-10">
+          <br />
+          {% partial __SELF__ ~ '::register' %}
+        </div>
+      </div>
+    </div>
+  </div>
 
-    {% partial __SELF__ ~ '::activation_check' %}
+{% else %}
 
     {% partial __SELF__ ~ '::update' %}
 

@@ -54,6 +54,8 @@ class Account extends ComponentBase
      */
     public function onRun()
     {
+
+        $this->addCss('/plugins/frontend/user/assets/css/signin.css');
         /*
          * Activation code supplied
          */
