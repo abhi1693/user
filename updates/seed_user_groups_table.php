@@ -1,6 +1,6 @@
-<?php namespace Abhimanyu\User\Updates;
+<?php namespace Frontend\User\Updates;
 
-use Abhimanyu\User\Models\UserGroup;
+use Frontend\User\Models\UserGroup;
 use October\Rain\Database\Updates\Seeder;
 
 class SeedUserGroupsTable extends Seeder

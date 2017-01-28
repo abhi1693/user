@@ -100,7 +100,7 @@ class Session extends ComponentBase
     /**
      * Returns the logged in user, if available, and touches
      * the last seen timestamp.
-     * @return RainLab\User\Models\User
+     * @return Frontend\User\Models\User
      */
     public function user()
     {

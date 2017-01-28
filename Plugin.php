@@ -7,6 +7,9 @@ use System\Classes\PluginBase;
 use System\Classes\SettingsManager;
 use Illuminate\Foundation\AliasLoader;
 use Frontend\User\Models\MailBlocker;
+use Frontend\User\Models\User;
+use Backend\Widgets\Form;
+use Frontend\User\Classes\ProviderManager;
 
 class Plugin extends PluginBase
 {
@@ -24,6 +27,34 @@ class Plugin extends PluginBase
             'icon'        => 'icon-user',
             'homepage'    => 'https://github.com/abhi1693/user'
         ];
+    }
+
+    public function boot() {
+      User::extend(function($model){
+        $model->hasMany['sociallogin_providers'] = ['Frontend\User\Models\Provider'];
+      });
+
+      Event::listen('backend.form.extendFields', function(Form $form){
+        if(!$form->getController() instanceof \System\Controllers\Settings) return;
+        if(!$form->model instanceof \Frontend\User\Models\Social) return;
+
+        foreach ( ProviderManager::instance()->listProviders() as $class => $details ) {
+          $classObj = $class::instance();
+          $classObj->extendSettingsForm($form);
+        }
+      });
+
+      Event::listen('backend.form.extendFields', function($widget){
+        if(!$widget->getController() instanceof \Frontend\User\Controllers\User) return;
+        if(!$widget->getContext() != 'update') return;
+
+        $widget->addFields([
+          'sociallogin_providers' => [
+            'label' => 'Social Providers',
+            'type' => 'Frontend\User\FormWidgets\LoginProviders'
+          ]
+        ], 'secondary');
+      });
     }
 
     public function register()
@@ -48,16 +79,18 @@ class Plugin extends PluginBase
         return [
             'Frontend\User\Components\Session'       => 'session',
             'Frontend\User\Components\Account'       => 'account',
-            'Frontend\User\Components\ResetPassword' => 'resetPassword'
+            'Frontend\User\Components\ResetPassword' => 'resetPassword',
+            'Frontend\User\Components\SocialLogin'   => 'sociallogin'
         ];
     }
 
     public function registerPermissions()
     {
         return [
-            'frontend.users.access_users'    => ['tab' => 'User', 'label' => 'Access Users'],
-            'frontend.users.access_groups'   => ['tab' => 'User', 'label' => 'Access Groups'],
-            'frontend.users.access_settings' => ['tab' => 'User', 'label' => 'Access Settings']
+            'frontend.users.access_users'       => ['tab' => 'User', 'label' => 'Access Users'],
+            'frontend.users.access_groups'      => ['tab' => 'User', 'label' => 'Access Groups'],
+            'frontend.users.access_settings'    => ['tab' => 'User', 'label' => 'Access Settings'],
+            'frontend.users.access_sociallogin' => ['tab' => 'User', 'label' => 'Access Social Login']
         ];
     }
 
@@ -86,6 +119,15 @@ class Plugin extends PluginBase
                 'class'       => 'Frontend\User\Models\Settings',
                 'order'       => 500,
                 'permissions' => ['frontend.users.access_settings'],
+            ],
+            'social' => [
+              'label'       => 'Social Login',
+				      'description' => 'Manage Social Login providers.',
+              'category'    => SettingsManager::CATEGORY_USERS,
+              'icon'        => 'icon-users',
+              'class'       => 'Frontend\User\Models\Social',
+              'order'       => 600,
+              'permissions' => ['frontend.users.access_sociallogin'],
             ]
         ];
     }
@@ -99,5 +141,27 @@ class Plugin extends PluginBase
             'frontend.user::mail.new_user'   => 'Sent to administrators when a new user joins.',
             'frontend.user::mail.reactivate' => 'Notification for users who reactivate their account.',
         ];
+    }
+
+    function register_sociallogin_providers() {
+      return [
+        '\\Frontend\\User\\SocialLoginProviders\\Google' => [
+          'label' => 'Google',
+          'alias' => 'Google',
+          'description' => 'Sign in with Google'
+        ],
+
+        '\\Frontend\\User\\SocialLoginProviders\\Facebook' => [
+          'label' => 'Facebook',
+          'alias' => 'Facebook',
+          'description' => 'Sign in with Facebook'
+        ],
+
+        '\\Frontend\\User\\SocialLoginProviders\\Twitter' => [
+          'label' => 'Twitter',
+          'alias' => 'Twitter',
+          'description' => 'Sign in with Twitter'
+        ],
+      ];
     }
 }

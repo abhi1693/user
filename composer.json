@@ -19,7 +19,9 @@
     ],
     "require": {
         "php": ">=5.5.9",
-        "composer/installers": "~1.0"
+        "composer/installers": "~1.0",
+        "hybridauth/hybridauth": "2.6.*",
+        "google/apiclient": "^2.0.0@RC"
     },
     "minimum-stability": "dev"
 }

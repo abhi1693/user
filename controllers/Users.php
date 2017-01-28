@@ -1,5 +1,6 @@
 <?php namespace Frontend\User\Controllers;
 
+use Db;
 use Auth;
 use Lang;
 use Flash;

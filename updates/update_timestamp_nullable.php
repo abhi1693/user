@@ -1,4 +1,4 @@
-<?php namespace Abhimanyu\User\Updates;
+<?php namespace Frontend\User\Updates;
 
 use October\Rain\Database\Updates\Migration;
 use DbDongle;

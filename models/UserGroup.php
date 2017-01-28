@@ -45,7 +45,7 @@ class UserGroup extends GroupBase
 
     /**
      * Returns the guest user group.
-     * @return RainLab\User\Models\UserGroup
+     * @return Frontend\User\Models\UserGroup
      */
     public static function getGuestGroup()
     {
