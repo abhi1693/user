@@ -1,7 +1,9 @@
 <?php namespace Frontend\User\Classes;
 
 use Auth;
-use October\Rain\Auth\Models\User;
+use Input;
+use System\Models\File;
+use Frontend\User\Models\User;
 use Frontend\User\Models\Provider;
 
 class UserManager
@@ -81,6 +83,21 @@ class UserManager
 		$user_details['password'] = $user_details['password_confirmation'] = str_random(16);
 
 		$user = Auth::register($user_details, true);
+
+		$avatarUrl = $_SERVER['DOCUMENT_ROOT'].\Config::get('cms.storage.uploads.path').'/public/avatar/'.$user->id.'.jpg';
+		file_put_contents($avatarUrl, file_get_contents($user_details['avatar']));
+
+		$file = new File();
+		$file->data = $avatarUrl;
+		$file->is_public = true;
+		$file->content_type = 'image/jpg';
+		$file->field = 'avatar';
+		$file->attachment_type = 'Frontend\User\Models\User';
+		$file->save();
+
+		$user->avatar()->add($file);
+		$user->save();
+
 		return $this->attachProvider($user, $provider_details);
 	}
 

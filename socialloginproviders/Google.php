@@ -80,11 +80,7 @@ class Google extends SocialLoginProviderBase
 		$client->setClientId( @$providers['Google']['client_id'] );
 		$client->setClientSecret( @$providers['Google']['client_secret'] );
 		$client->setRedirectUri( URL::route('sociallogin_provider', ['Google'], true) );
-		// $client->setDeveloperKey('insert_your_developer_key');
-
-		$client->addScope('email');
-		// $client->addScope(Google_Service_Plus::PLUS_ME);
-		// $client->addScope('profile');
+		$client->addScope('profile');
 
 		return $client;
 	}
@@ -133,7 +129,9 @@ class Google extends SocialLoginProviderBase
 
 		return [
 			'token' => $access_token['access_token'],
+			'name' => implode(' ', explode(' ', $data['name'], -1)),
 			'email' => $data['email'],
+			'avatar' => preg_replace('/(s[0-9]+[-]c)/', 's512', $data['picture'])
 		];
 	}
 }

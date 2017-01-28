@@ -1,12 +1,19 @@
 {% if not user %}
 
-  <ul class="nav nav-tabs">
-    <li class="active"><a href="#signin" data-toggle="tab">Sign In</a></li>
-    <li><a href="#register" data-toggle="tab">Register</a></li>
-  </ul>
+<div class="container">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2 col-sm-offset-4">
+        <ul class="nav nav-pills">
+          <li class="active"><a href="#signin" data-toggle="pill">Sign In</a></li>
+          <li><a href="#register" data-toggle="pill">Register</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
   <div class="tab-content">
-    <div class="tab-pane active in" id="signin">
+    <div class="tab-pane active fade in" id="signin">
       <div class="row">
         <div class="col-md-10">
           <br />
@@ -24,6 +31,7 @@
       </div>
     </div>
   </div>
+</div>
 
 {% else %}
 
