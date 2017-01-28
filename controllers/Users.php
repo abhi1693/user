@@ -87,22 +87,6 @@ class Users extends Controller
         $query->withTrashed();
     }
 
-    /**
-     * Display username field if settings permit
-     */
-    public function formExtendFields($form)
-    {
-        /*
-         * Show the username field if it is configured for use
-         */
-        if (
-            UserSettings::get('login_attribute') == UserSettings::LOGIN_USERNAME &&
-            array_key_exists('username', $form->getFields())
-        ) {
-            $form->getField('username')->hidden = false;
-        }
-    }
-
     public function formAfterUpdate($model)
     {
         $blockMail = post('User[block_mail]', false);

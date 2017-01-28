@@ -11,7 +11,7 @@ columns:
     username:
         label: Username
         searchable: true
-        invisible: true
+        invisible: false
 
     name:
         label: First Name

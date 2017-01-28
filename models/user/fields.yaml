@@ -18,7 +18,13 @@ tabs:
         email:
             label: Email
             tab: Account
-            span: full
+            span: left
+
+        username:
+            label: Username
+            tab: Account
+            hidden: false
+            span: right
 
         send_invite:
             type: checkbox
@@ -57,12 +63,6 @@ tabs:
             type: password
             span: right
             context: [create, update]
-
-        username:
-            label: Username
-            tab: Account
-            hidden: true
-            span: left
 
         groups:
             label: Groups
