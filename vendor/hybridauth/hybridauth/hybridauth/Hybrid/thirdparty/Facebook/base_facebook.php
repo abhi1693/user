@@ -1249,23 +1249,17 @@ abstract class BaseFacebook
    * @return string The HTTP Protocol
    */
   protected function getHttpProtocol() {
-    if ($this->trustForwarded && isset($_SERVER['HTTP_X_FORWARDED_PROTO'])) {
-      if ($_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
-        return 'https';
-      }
-      return 'http';
-    }
-    /*apache + variants specific way of checking for https*/
-    if (isset($_SERVER['HTTPS']) &&
-        ($_SERVER['HTTPS'] === 'on' || $_SERVER['HTTPS'] == 1)) {
-      return 'https';
-    }
-    /*nginx way of checking for https*/
-    if (isset($_SERVER['SERVER_PORT']) &&
-        ($_SERVER['SERVER_PORT'] === '443')) {
-      return 'https';
-    }
-    return 'http';
+    //we are sure is a https request , we use first the Nginx forwarded PROTO OR apache OR cloudflare
+        if( (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) AND $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https')
+            OR (isset($_SERVER['REQUEST_SCHEME']) AND $_SERVER['REQUEST_SCHEME'] == 'https')
+            OR (isset($_SERVER['HTTP_CF_VISITOR']) AND $_SERVER['HTTP_CF_VISITOR'] == '{"scheme":"https"}')
+            )
+        {
+
+            return 'https';
+        }
+
+        return 'http';
   }
 
   /**

@@ -73,8 +73,9 @@ class Facebook extends SocialLoginProviderBase
 			"providers" => [
 				'Facebook' => [
 					"enabled" => true,
+					"trustForwarded" => true,
 					"keys"    => array ( "id" => @$providers['Facebook']['app_id'], "secret" => @$providers['Facebook']['app_secret'] ),
-					"scope"   => "email, user_about_me",
+					"scope"   => "email, public_profile",
 				]
 			],
 		]);
