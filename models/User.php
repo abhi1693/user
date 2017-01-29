@@ -6,6 +6,7 @@ use Mail;
 use Event;
 use October\Rain\Auth\Models\User as UserBase;
 use Frontend\User\Models\Settings as UserSettings;
+use Frontend\User\Models\UserGroup;
 
 class User extends UserBase
 {
@@ -30,7 +31,10 @@ class User extends UserBase
      * @var array Relations
      */
     public $belongsToMany = [
-        'groups' => ['Frontend\User\Models\UserGroup', 'table' => 'users_groups']
+        'groups' => ['Frontend\User\Models\UserGroup',
+                        'table'     => 'users_groups',
+                        'key'       => 'user_id',
+                        'otherKey'  => 'user_group_id']
     ];
 
     public $attachOne = [
@@ -83,6 +87,9 @@ class User extends UserBase
         }
 
         Event::fire('frontend.user.activate', [$this]);
+
+        $gId = UserGroup::where('code', 'registered')->lists('id');
+        UsersGroups::addUser($this, $gId[0]);
 
         return true;
     }

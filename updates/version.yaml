@@ -60,3 +60,6 @@
 1.3.4:
     - Add Social Login Providers table
     - create_social_login_table.php
+1.3.5:
+    - Add user to registered group after activation
+    - add_timestamp_field_users_groups.php
